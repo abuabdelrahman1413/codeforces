@@ -1,20 +1,59 @@
-To solve the problem of determining whether the factorial of a given number \( N \) is even or not, we need to consider some properties of factorials and even numbers. Here’s the step-by-step reasoning and approach to solve this problem efficiently:
 
-### Key Observations
-1. **Factorial Growth**:
-   - The factorial of a number \( N \) (denoted as \( N! \)) is the product of all positive integers up to \( N \).
-   - For example, \( 5! = 5 \times 4 \times 3 \times 2 \times 1 = 120 \).
+## Problem: Factorial Even or Odd
 
-2. **Even and Odd Factorials**:
-   - Any integer greater than or equal to 2 has at least one even factor (2 or more), making the factorial even.
-   - The only factorial that is not even is \( 1! \), which equals 1, and is odd.
+### Problem Description
 
-### Conclusion
-- For \( N = 1 \), \( 1! = 1 \) which is odd.
-- For \( N \geq 2 \), \( N! \) will always include the number 2 as a factor, thus making \( N! \) even.
+Given an integer \( N \) (1 ≤ \( N \) ≤ \( 10^9 \)), determine whether the factorial of \( N \) is even or odd.
 
-### Implementation
-Given the constraints \( 1 \leq N \leq 10^9 \), calculating the factorial directly for such large numbers is computationally infeasible. However, based on our observations, we can simplify the task:
-- If \( N \) is 1, print "NO".
-- If \( N \) is 2 or greater, print "YES".
+### Input
+- A single integer \( N \).
+
+### Output
+- Print "YES" if the factorial of \( N \) is even.
+- Print "NO" if the factorial of \( N \) is odd.
+
+### Example
+- **Input**: 9
+- **Output**: YES
+
+### Explanation
+- Factorials example: \( 4! = 4 \times 3 \times 2 \times 1 = 24 \), which is even.
+
+### Solution
+
+Given the constraints, calculating the factorial of \( N \) directly for large \( N \) is impractical due to extremely large numbers. However, an optimized solution is based on the properties of factorials:
+
+1. For \( N = 1 \), \( 1! = 1 \) which is odd.
+2. For \( N \geq 2 \), the factorial \( N! \) will always include the number 2 as a factor, making it even.
+
+### Code
+
+The provided solution checks whether the factorial of \( N \) is even or odd without actually calculating the factorial for large values of \( N \):
+
+```c
+#include <stdio.h>
+
+int main()
+{
+    long n;
+    scanf("%ld", &n);
+    if (n == 1)
+        printf("NO");
+    else
+        printf("YES");
+
+    return (0);
+}
+```
+
+### Explanation of Code
+
+1. **Input Handling**: Reads the input value into `n`.
+2. **Even/Odd Check**:
+   - If \( n \) is 1, it prints "NO" since \( 1! = 1 \) which is odd.
+   - For \( n \geq 2 \), it prints "YES" because the factorial of any number 2 or greater is even.
+
+### Additional Notes
+
+- This approach avoids unnecessary computation and efficiently solves the problem within the given constraints.
 
